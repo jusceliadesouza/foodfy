@@ -1,22 +1,28 @@
-const db = require("../../config/db");
+const { date } = require("../../lib/utils");
+
+const Recipe = require("../models/Recipe");
 
 module.exports = {
   index(req, res) {
-    db.query(`SELECT * FROM recipes`, function (err, results) {
-      if (err) return res.send("Database Error!");
-      return res.render("main/index", { recipes: results.rows });
+    Recipe.all(function (recipes) {
+      return res.render("main/index", { recipes });
     });
   },
   about(req, res) {
     return res.render("main/about");
   },
   recipes(req, res) {
-    db.query(`SELECT * FROM recipes`, function (err, results) {
-      if (err) return res.send("Database Error!");
-      return res.render("main/recipes", { recipes: results.rows });
+    Recipe.all(function (recipes) {
+      return res.render("main/recipes", { recipes });
     });
   },
   show(req, res) {
-    return res.render("main/recipe")
-  }
+    Recipe.find(req.params.id, function (recipe) {
+      if (!recipe) return res.send("Recipe not found");
+      
+      recipe.created_at = date(recipe.created_at).format;
+
+      return res.render("main/recipe", { recipe });
+    });
+  },
 };
