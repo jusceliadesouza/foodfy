@@ -1,12 +1,14 @@
 const express = require("express");
 const routes = express.Router();
 
-//data.json
-const recipes = require("./data.js");
+// controllers
+const recipes = require('./controllers/recipes')
 
-//principal
+const data = require("./data.js");
+
+// principal
 routes.get("/", function (req, res) {
-  return res.render("index", { items: recipes });
+  return res.render("index", { items: data });
 });
 
 routes.get("/about", function (req, res) {
@@ -14,14 +16,23 @@ routes.get("/about", function (req, res) {
 });
 
 routes.get("/recipes", function (req, res) {
-  return res.render("recipes", { items: recipes });
+  return res.render("recipes", { items: data });
 });
 
 routes.get("/recipes/:index", function (req, res) {
   const recipeIndex = req.params.index;
-  const recipe = recipes[recipeIndex];
+  const recipe = data[recipeIndex];
 
   return res.render("recipe", { recipe });
 });
+
+// admin
+routes.get("/admin/recipes", recipes.index); // Mostrar a lista de receitas
+// routes.get("/admin/recipes/create", recipes.create); // Mostrar formulário de nova receita
+routes.get("/admin/recipes/:id", recipes.show); // Exibir detalhes de uma receita
+// routes.get("/admin/recipes/:id/edit", recipes.edit); // Mostrar formulário de edição de receita
+// routes.post("/admin/recipes", recipes.post); // Cadastrar nova receita
+// routes.put("/admin/recipes", recipes.put); // Editar uma receita
+// routes.delete("/admin/recipes", recipes.delete); // Deletar uma receita
 
 module.exports = routes;
