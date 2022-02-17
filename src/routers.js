@@ -2,8 +2,8 @@ const express = require("express");
 const routes = express.Router();
 
 // controllers
-const recipes = require('./app/controllers/recipes')
 const main = require('./app/controllers/main')
+const recipes = require('./app/controllers/recipes')
 
 // principal
 routes.get("/", main.index);

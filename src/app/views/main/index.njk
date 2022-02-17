@@ -23,14 +23,14 @@
     <h1>Mais acessadas</h1>
 
     <div class="cards">
-      {% for item in items %}
+      {% for recipe in recipes %}
         <div class="card-modal" id="burger">
           <div class="card-image">
-            <img src={{item.image}} alt="Imagem de {{item.title}}">
+            <img src={{recipe.image}} alt="Imagem de {{recipe.title}}">
           </div>
           <div class="card-info">
-            <p id="title">{{item.title}}</p>
-            <p id="chef">por {{item.author}}</p>
+            <p id="title">{{recipe.title}}</p>
+            <p id="chef">por {{recipe.author}}</p>
           </div>
         </div>
       {% endfor %}

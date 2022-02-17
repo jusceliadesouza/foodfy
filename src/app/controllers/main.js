@@ -1,14 +1,22 @@
+const db = require("../../config/db");
+
 module.exports = {
   index(req, res) {
-    return res.render("index");
+    db.query(`SELECT * FROM recipes`, function (err, results) {
+      if (err) return res.send("Database Error!");
+      return res.render("main/index", { recipes: results.rows });
+    });
   },
   about(req, res) {
-    return res.render("about")
+    return res.render("main/about");
   },
   recipes(req, res) {
-    return res.render("recipes")
+    db.query(`SELECT * FROM recipes`, function (err, results) {
+      if (err) return res.send("Database Error!");
+      return res.render("main/recipes", { recipes: results.rows });
+    });
   },
   show(req, res) {
-    return res.render("recipe")
+    return res.render("main/recipe")
   }
 };
