@@ -1,3 +1,4 @@
+const { redirect } = require("express/lib/response");
 const { date } = require("../../lib/utils");
 
 const Recipe = require("../models/Recipe");
@@ -51,6 +52,8 @@ module.exports = {
 
   },
   delete(req, res) {
-    return;
+    Recipe.delete(req.body.id, function() {
+      return res.redirect(`/admin/recipes`)
+    })
   },
 };
