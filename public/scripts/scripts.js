@@ -40,18 +40,6 @@ for (let card of cards_modal) {
   });
 }
 
-// // cards de receitas
-// const cards = document.querySelectorAll(".card");
-
-// for (let card of cards) {
-//   card.addEventListener("click", function () {
-//     const array = Array.from(cards);
-//     const ind = array.indexOf(card);
-
-//     window.location.href = `/recipes/${ind}`;
-//   });
-// }
-
 //página de receita única
 const details = document.querySelectorAll('.details')
 
@@ -62,6 +50,18 @@ for ( let detail of details ) {
 
         toHide(show, display)
     });
+}
+
+// cards de receitas
+const cards = document.querySelectorAll(".card");
+
+for (let card of cards) {
+  card.addEventListener("click", function () {
+    const array = Array.from(cards);
+    const ind = array.indexOf(card);
+
+    window.location.href = `/recipes/${ind}`;
+  });
 }
 
 /*<<< FUNCTIONS >>>*/

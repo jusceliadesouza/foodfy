@@ -60,6 +60,10 @@ a.detail-show {
   cursor: pointer;
 }
 
+a.detail-show:hover {
+  color: #777;
+}
+
 .disable {
   display: none;
 }

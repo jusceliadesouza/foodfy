@@ -17,14 +17,10 @@ routes.get("/recipes", function (req, res) {
   return res.render("recipes", { items: recipes });
 });
 
-routes.get("/recipe", function (req, res) {
-  const id = req.query.id;
+routes.get("/recipes/:index", function (req, res) {
+  const recipeIndex = req.params.index;
+  const recipe = recipes[recipeIndex];
 
-  const recipe = recipes.find(function (recipe) {
-    return recipe.id == id;
-  });
-  
-  if (!recipe) return res.send("Recipe not found!");
   return res.render("recipe", { recipe });
 });
 
