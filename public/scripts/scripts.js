@@ -10,9 +10,9 @@ for (item of menuItens) {
 
 //página inicial - modal
 const modalOverlay = document.querySelector(".modal-overlay");
-const cards = document.querySelectorAll(".card");
+const cards_modal = document.querySelectorAll(".card-modal");
 
-for (let card of cards) {
+for (let card of cards_modal) {
   //abrir modal
   card.addEventListener("click", function () {
     modalOverlay.classList.add("active");
@@ -40,37 +40,37 @@ for (let card of cards) {
   });
 }
 
-// //cards de receitas
-// const cards = document.querySelectorAll('.card');
+// // cards de receitas
+// const cards = document.querySelectorAll(".card");
 
-// for ( let card of cards ) {
-//     card.addEventListener('click', function () {
-//         const array = Array.from(cards)
-//         const ind = array.indexOf(card)
+// for (let card of cards) {
+//   card.addEventListener("click", function () {
+//     const array = Array.from(cards);
+//     const ind = array.indexOf(card);
 
-//         window.location.href = `/recipes/${ind}`
-//     })
+//     window.location.href = `/recipes/${ind}`;
+//   });
 // }
 
-// //página de receita única
-// const details = document.querySelectorAll('.details')
+//página de receita única
+const details = document.querySelectorAll('.details')
 
-// for ( let detail of details ) {
-//     detail.addEventListener('click', function() {
-//         const show = detail.querySelector('.detail-show')
-//         const display = detail.querySelector('.detail-display')
+for ( let detail of details ) {
+    detail.addEventListener('click', function() {
+        const show = detail.querySelector('.detail-show')
+        const display = detail.querySelector('.detail-display')
 
-//         toHide(show, display)
-//     });
-// }
+        toHide(show, display)
+    });
+}
 
-// /*<<< FUNCTIONS >>>*/
-// function toHide(var1, var2) {
-//     if (var1.innerHTML == 'ESCONDER') {
-//         var2.classList.add('disable')
-//         var1.innerHTML = 'MOSTRAR'
-//     } else {
-//         var2.classList.remove('disable')
-//         var1.innerHTML = 'ESCONDER'
-//     }
-// }
+/*<<< FUNCTIONS >>>*/
+function toHide(var1, var2) {
+    if (var1.innerHTML == 'ESCONDER') {
+        var2.classList.add('disable')
+        var1.innerHTML = 'MOSTRAR'
+    } else {
+        var2.classList.remove('disable')
+        var1.innerHTML = 'ESCONDER'
+    }
+}

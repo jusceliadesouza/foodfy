@@ -1,0 +1,83 @@
+.image {
+  margin-bottom: 50px;
+}
+
+.image img {
+  width: 940px;
+  height: 280px;
+  border-radius: 15px;
+
+  object-fit: cover;
+}
+
+.info {
+  text-align: justify;
+}
+
+.header h1,
+.header p {
+  text-align: center;
+}
+
+.info #title {
+  font-size: 36px;
+  margin-bottom: 15px;
+}
+
+.info #chef {
+  font-size: 20px;
+}
+
+.details {
+  margin-top: 0;
+  margin-bottom: 50px;
+}
+
+.detail-title {
+  margin: 20px 0;
+  
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+}
+
+.detail-title h2 {
+  margin: 0;
+
+  font-size: 24px;
+  color: #111;
+}
+
+a.detail-show {
+  margin-left: 8px;
+  margin-top: 5px;
+
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 14px;
+  color: #999999;
+
+  cursor: pointer;
+}
+
+.disable {
+  display: none;
+}
+
+.info ul {
+  margin-left: 12px;
+  font-size: 18px;
+  color: #444;
+  line-height: 28px;
+}
+
+.info ul.dash {
+  list-style-type: "-  ";
+}
+
+.info p {
+  font-size: 18px;
+  color: #444;
+  line-height: 28px;
+  white-space: pre-line;
+}
