@@ -1,0 +1,45 @@
+.cards-chefs {
+  display: flex;
+  gap: 30px;
+
+  flex-flow: row wrap;
+  justify-content: flex-start;
+}
+
+.card-chef {
+  margin: 0;
+  width: 212px;
+
+  display: flex;
+}
+
+.card-avatar,
+.card-info,
+.card-info p {
+  margin: 0;
+}
+
+.card-info {
+  margin-left: 20px;
+  margin-top: 6px;
+}
+
+.card-avatar img {
+  width: 64px;
+  height: 64px;
+
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+#chef-name {
+  margin-top: 4px;
+  font-size: 18px;
+  color: #111111;
+}
+
+#quantity {
+  margin-top: -5px;
+  font-size: 14px;
+  color: #666666;
+}

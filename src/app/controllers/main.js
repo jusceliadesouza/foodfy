@@ -1,6 +1,7 @@
 const { date } = require("../../lib/utils");
 
 const Recipe = require("../models/Recipe");
+const Chef = require("../models/Chef");
 
 module.exports = {
   index(req, res) {
@@ -19,10 +20,15 @@ module.exports = {
   show(req, res) {
     Recipe.find(req.params.id, function (recipe) {
       if (!recipe) return res.send("Recipe not found");
-      
+
       recipe.created_at = date(recipe.created_at).format;
 
       return res.render("main/recipe", { recipe });
+    });
+  },
+  chefs(req, res) {
+    Chef.all(function (chefs) {
+      return res.render("main/chefs", { chefs });
     });
   },
 };

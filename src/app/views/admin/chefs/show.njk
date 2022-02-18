@@ -1,0 +1,55 @@
+{% extends '../layout.njk' %}
+
+{% block head %}
+    <title>Admin | Detalhes de {{ chef.name }}</title>
+    <link rel="stylesheet" href="/styles/admin/chefs.css">
+{% endblock head %}
+
+{% block content %}
+    <section class="sub-menu">
+        <h1>Chef: {{ chef.name }}</h1>
+        <a href="/admin/chefs/{{ chef.id }}/edit">Editar chef</a>
+    </section>
+
+    <section class="chef">
+        <section class="avatar">
+            <img src="{{ chef.avatar_url }}" alt="{{ chef.name }}">
+        </section>
+
+        <section class="info">
+            <h1>{{ chef.name }}</h1>
+
+            {% if chef.total_recipes == 0 %}
+              <p>Nenhuma receita</p>
+            {% elif chef.total_recipes == 1 %}
+              <p>1 receita</p>
+            {% else %}  
+              <p>{{chef.total_recipes}} receitas</p>
+            {% endif %}
+        </section>
+
+        <section class="recipes">
+            <h1>Receitas</h1>
+            <div class="card table-container">
+                <table width="100%">
+                    <tbody>
+                        {% for recipe in recipes %}
+                            <tr>
+                                <td>
+                                    <img src="{{recipe.image}}" alt="{{recipe.title}}">
+                                </td>
+
+                                <td>
+                                    <p id="title">{{recipe.title}}</p>
+                                    <p id="author">por {{recipe.chef_name}}</p>
+                                    <a href="/admin/recipes/{{recipe.id}}">Visulizar</a>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </section>
+
+{% endblock content %}

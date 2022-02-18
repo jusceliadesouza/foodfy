@@ -1,4 +1,3 @@
-const { redirect } = require("express/lib/response");
 const { date } = require("../../lib/utils");
 
 const Recipe = require("../models/Recipe");
@@ -10,7 +9,9 @@ module.exports = {
     });
   },
   create(req, res) {
-    return res.render("admin/recipes/create");
+    Recipe.chefsSelectOptions(function (options) {
+      return res.render("admin/recipes/create", { chefsOptions: options })
+    })
   },
   post(req, res) {
     const keys = Object.keys(req.body);
@@ -33,16 +34,22 @@ module.exports = {
   },
   edit(req, res) {
     Recipe.find(req.params.id, function (recipe) {
-      if (!recipe) return res.send("Recipe not found");
-      recipe.created_at = date(recipe.created_at).format;
+      if (!recipe) return res.send("Recipe not found!");
 
-      return res.render("admin/recipes/edit", { recipe });
+      Recipe.chefsSelectOptions(function (options) {
+        return res.render("admin/recipes/edit", {
+          recipe,
+          chefsOptions : options
+        });
+      });
     });
   },
   put(req, res) {
     const keys = Object.keys(req.body);
 
     for (key of keys) {
+      console.log(key)
+
       if (req.body[key] == "") return res.send("Please, fill all fields");
     }
 

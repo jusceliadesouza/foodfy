@@ -1,35 +1,35 @@
 {% extends '../layout.njk' %}
 
 {% block head %}
-    <title>Admin | Editar {{ recipe.title }}</title>
+    <title>Admin | Editar {{ chef.name }}</title>
 {% endblock head %}
 
 {% block content %}
     <section class="sub-menu">
-        <h1>Editando receita</h1>
+        <h1>Editando chef</h1>
 
-        <div class="buttons">
-            <form id="form-delete" action="/admin/recipes?_method=DELETE" method="post">
-                <input type="hidden" name="id" value="{{ recipe.id }}">
+        <div class="buttons grid">
+            <form id="form-delete" action="/admin/chefs?_method=DELETE" method="POST">
+                <input type="hidden" name="id" value="{{ chef.id }}">
                 <button id="delete" type="submit">Deletar</button>
             </form>
 
-            <button type="submit" form="form-submit">Salvar receita</button>
+            <button type="submit" form="form-submit">Salvar chef</button>
         </div>
 
     </section>
 
-    <section class="card-form">
-        <form id="form-submit" action="/admin/recipes?_method=PUT" method="post">
-            {% include 'admin/recipes/fields.njk' %}
+    <form id="form-submit" action="/admin/chefs?_method=PUT" method="POST">
+        <section class="card-form">
+            {% include 'admin/chefs/fields.njk' %}
 
             <input
             type="hidden"
             name="id"
-            value="{{recipe.id}}"
+            value="{{ chef.id }}"
         >
-        </form>
-    </section>
+        </section>
+    </form>
 
     <script>
         const formDelete = document.querySelector("#form-delete")

@@ -57,14 +57,16 @@ section {
 }
 
 .links a {
-  color: white;
+  color: #999;
+
   font-size: 15px;
+  font-weight: bold;
   text-transform: uppercase;
   text-decoration: none;
 }
 
-.links a .active {
-  color: #999;
+.links a.active {
+  color: white;
 }
 
 .sub-menu {
@@ -277,6 +279,7 @@ tbody tr td:last-child {
 }
 
 input,
+select,
 .card-form #title,
 .card-form #author {
   padding: 15px 20px;
@@ -288,14 +291,20 @@ input,
 }
 
 textarea {
+  line-height: 24px;
   height: 257px;
   resize: none;
   padding: 18px 20px;
-  line-height: 24px;
+}
+
+select:first-child,
+option:first-child {
+  color: #999;
 }
 
 input,
-textarea {
+textarea,
+select {
   width: 100%;
   max-width: 900px;
 
@@ -305,6 +314,10 @@ textarea {
 
   font: 16px "Roboto", sans-serif;
   text-align: justify;
+}
+
+select {
+  max-width: 940px;
 }
 
 .add-ingredient,

@@ -1,0 +1,43 @@
+/* === INDEXS CHEFS === */
+.chef {
+  margin-top: 0;
+}
+
+.chef tbody {
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+}
+
+.chef .avatar {
+  display: flex;
+}
+
+.chef .avatar img {
+  width: 200px;
+  height: 200px;
+
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.table-container .chef img {
+  width: 64px;
+  height: 64px;
+
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.table-container .chef #title {
+  margin-top: 10px;
+}
+
+.table-container .chef a {
+  font: 800 16px;
+}
+
+.table-container tr {
+  margin: 0;
+  display: grid;
+  grid-template-columns: 64px 1fr;
+}

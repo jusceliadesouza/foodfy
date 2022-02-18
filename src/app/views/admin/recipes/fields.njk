@@ -20,12 +20,20 @@
 </div>
 
 <div class="card-form item">
-    <h3>Autor</h3>
-    <input 
-        type="text"
-        name="author"
-        value="{{recipe.author}}"
-    >
+    <h3>Chef</h3>
+    
+    <select name="chefs" autofocus>
+        <option>Selecione um chef</option>
+            {% for chef in chefsOptions %}
+                <option 
+                    value="{{recipe.chef_id}}" 
+                    {% if recipe.chef_id == chef.id %}
+                        selected
+                    {% endif %}>
+                    {{chef.name}}
+                </option>
+            {% endfor %}
+    </select>
 </div>
 
 <div class="card-form item">

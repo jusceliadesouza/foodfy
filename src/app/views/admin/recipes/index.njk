@@ -7,6 +7,7 @@
 {% block content %}
   <section class="sub-menu">
     <h1>Gerenciar receitas</h1>
+    <a href="/admin/recipes/create">Nova receita</a>
   </section>
 
   <section class="card table-container">
@@ -20,7 +21,7 @@
 
             <td>
               <p id="title">{{recipe.title}}</p>
-              <p id="author">{{recipe.author}}</p>
+              <p id="author">por {{recipe.chef_name}}</p>
               <a href="/admin/recipes/{{recipe.id}}">Visulizar</a>
             </td>
           </tr>
