@@ -30,7 +30,7 @@
 
         <section class="recipes">
             <h1>Receitas</h1>
-            <div class="card table-container">
+            <div class="card table-container chef-display">
                 <table width="100%">
                     <tbody>
                         {% for recipe in recipes %}
@@ -41,7 +41,7 @@
 
                                 <td>
                                     <p id="title">{{recipe.title}}</p>
-                                    <p id="author">por {{recipe.chef_name}}</p>
+                                    <p id="author">por {{chef.name}}</p>
                                     <a href="/admin/recipes/{{recipe.id}}">Visulizar</a>
                                 </td>
                             </tr>

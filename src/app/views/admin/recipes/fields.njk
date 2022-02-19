@@ -24,7 +24,7 @@
     
     <select name="chefs" autofocus>
         <option>Selecione um chef</option>
-            {% for chef in chefsOptions %}
+            {% for chef in chefOptions %}
                 <option 
                     value="{{recipe.chef_id}}" 
                     {% if recipe.chef_id == chef.id %}

@@ -15,7 +15,13 @@
           </div>
           <div class="card-info">
             <p id="chef_name">{{chef.name}}</p>
-            <p id="quantity">{{chef.quantity}} receitas</p>
+            {% if chef.total_recipes == 0 %}
+              <p id="total_recipes">Nenhuma receita</p>
+            {% elif chef.total_recipes == 1 %}
+              <p id="total_recipes">1 receita</p>
+            {% else %}  
+              <p id="total_recipes">{{chef.total_recipes}} receitas</p>
+            {% endif %}
           </div>
         </div>
       {% endfor %}

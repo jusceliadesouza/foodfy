@@ -28,7 +28,9 @@ module.exports = {
       
       chef.created_at = date(chef.created_at).format;
 
-      return res.render("admin/chefs/show", { chef });
+       Chef.findRecipes(req.params.id, function(recipes) {
+         return res.render("admin/chefs/show", { chef, recipes });
+       })
     });
   },
   edit(req, res) {

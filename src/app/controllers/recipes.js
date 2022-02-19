@@ -10,7 +10,7 @@ module.exports = {
   },
   create(req, res) {
     Recipe.chefsSelectOptions(function (options) {
-      return res.render("admin/recipes/create", { chefsOptions: options })
+      return res.render("admin/recipes/create", { chefOptions: options })
     })
   },
   post(req, res) {
@@ -39,7 +39,7 @@ module.exports = {
       Recipe.chefsSelectOptions(function (options) {
         return res.render("admin/recipes/edit", {
           recipe,
-          chefsOptions : options
+          chefOptions : options
         });
       });
     });

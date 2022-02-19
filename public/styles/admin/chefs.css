@@ -38,6 +38,18 @@
 
 .table-container tr {
   margin: 0;
+
   display: grid;
   grid-template-columns: 64px 1fr;
+}
+
+.table-container.chef-display tr {
+  margin: 30px 0;
+  width: 400px;
+
+  display: flex;
+}
+
+.table-container.chef-display tr td:last-child() {
+  display: flex;
 }
