@@ -4,7 +4,8 @@ const db = require("../../config/db");
 
 module.exports = {
   all(callback) {
-    db.query(`
+    db.query(
+      `
       SELECT recipes.*, chefs.name AS chef_name
       FROM recipes
       LEFT JOIN chefs ON (recipes.chef_id = chefs.id)
@@ -45,7 +46,8 @@ module.exports = {
     });
   },
   find(id, callback) {
-    db.query(`SELECT recipes.*, chefs.name AS chef_name
+    db.query(
+      `SELECT recipes.*, chefs.name AS chef_name
       FROM recipes
       LEFT JOIN chefs ON (recipes.chef_id = chefs.id)
       WHERE recipes.id = $1`,
@@ -57,7 +59,8 @@ module.exports = {
     );
   },
   findBy(filter, callback) {
-    db.query(`
+    db.query(
+      `
       SELECT recipes.*, chefs.name AS chef_name
       FROM recipes
       LEFT JOIN chefs ON (recipes.chef_id = chefs.id)
@@ -108,6 +111,40 @@ module.exports = {
   },
   chefsSelectOptions(callback) {
     db.query(`SELECT id, name FROM chefs`, function (err, results) {
+      if (err) throw "Database Error!";
+      callback(results.rows);
+    });
+  },
+  paginate(params) {
+    const { filter, limit, offset, callback } = params;
+
+    let query = "",
+      filterQuery = "",
+      totalQuery = `(
+            SELECT count(*) FROM recipes
+        ) AS total`;
+    orderBy = "ORDER BY recipes.created_at DESC";
+
+    if (filter) {
+      filterQuery = `
+        WHERE recipes.title ILIKE '%${filter}%'`;
+
+      totalQuery = `(
+            SELECT count(*) FROM recipes
+            ${filterQuery}
+        ) AS total`;
+    }
+
+    query = `
+    SELECT recipes.*, ${totalQuery}, chefs.name as chef_name
+    FROM recipes
+    LEFT JOIN chefs ON (recipes.chef_id = chefs.id)
+    ${filterQuery}
+    ${orderBy}
+    LIMIT $1 OFFSET $2
+    `;
+
+    db.query(query, [limit, offset], function (err, results) {
       if (err) throw "Database Error!";
       callback(results.rows);
     });

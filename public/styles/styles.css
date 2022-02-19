@@ -36,6 +36,7 @@ header {
 
   display: grid;
   grid-template-columns: 120px 1fr 350px;
+  align-items: center;
 }
 
 .logo {
@@ -290,6 +291,30 @@ section {
 
 .close-modal:hover {
   color: var(--medium-dark-gray-color);
+}
+
+/* === PAGINAÇÃO === */
+.container {
+  margin-bottom: 30px;
+  display: grid;
+}
+
+.pagination {
+  align-self: end;
+  justify-self: center;
+}
+
+.pagination a,
+.pagination span {
+  color: #111;
+  background: none;
+  margin-right: 16px;
+  text-decoration: none;
+}
+
+.pagination a:hover {
+  filter: brightness(.3);
+  border-bottom: 1px solid #444;
 }
 
 /* FOOTER */

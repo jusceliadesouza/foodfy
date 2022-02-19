@@ -1,4 +1,4 @@
-//menu - página ativa
+// menu - página ativa
 const currentPage = location.pathname;
 const menuItens = document.querySelectorAll(".links a");
 
@@ -8,12 +8,12 @@ for (item of menuItens) {
   }
 }
 
-//página inicial - modal
+// página inicial - modal
 const modalOverlay = document.querySelector(".modal-overlay");
 const cards_modal = document.querySelectorAll(".card-modal");
 
 for (let card of cards_modal) {
-  //abrir modal
+  // abrir modal
   card.addEventListener("click", function () {
     modalOverlay.classList.add("active");
 
@@ -40,16 +40,16 @@ for (let card of cards_modal) {
   });
 }
 
-//página de receita única
-const details = document.querySelectorAll('.details')
+// página de receita única
+const details = document.querySelectorAll(".details");
 
-for ( let detail of details ) {
-    detail.addEventListener('click', function() {
-        const show = detail.querySelector('.detail-show')
-        const display = detail.querySelector('.detail-display')
+for (let detail of details) {
+  detail.addEventListener("click", function () {
+    const show = detail.querySelector(".detail-show");
+    const display = detail.querySelector(".detail-display");
 
-        toHide(show, display)
-    });
+    toHide(show, display);
+  });
 }
 
 // cards de receitas
@@ -66,11 +66,75 @@ for (let card of cards) {
 
 /*<<< FUNCTIONS >>>*/
 function toHide(var1, var2) {
-    if (var1.innerHTML == 'ESCONDER') {
-        var2.classList.add('disable')
-        var1.innerHTML = 'MOSTRAR'
-    } else {
-        var2.classList.remove('disable')
-        var1.innerHTML = 'ESCONDER'
+  if (var1.innerHTML == "ESCONDER") {
+    var2.classList.add("disable");
+    var1.innerHTML = "MOSTRAR";
+  } else {
+    var2.classList.remove("disable");
+    var1.innerHTML = "ESCONDER";
+  }
+}
+
+// paginação
+function paginate(selectedPage, totalPages) {
+  let pages = [],
+    oldPage;
+
+  for (let currentPage = 1; currentPage <= totalPages; currentPage++) {
+    const firstAndLastPage = currentPage == 1 || currentPage == totalPages;
+    const pagesAfterSelectedPage = currentPage <= selectedPage + 2;
+    const pagesBeforeSelectedPage = currentPage >= selectedPage - 2;
+
+    if (
+      firstAndLastPage ||
+      (pagesBeforeSelectedPage && pagesAfterSelectedPage)
+    ) {
+      if (oldPage && currentPage - oldPage > 2) {
+        pages.push("...");
+      }
+
+      // oldPage não existe na primeira vez
+      if (oldPage && currentPage - oldPage == 2) {
+        pages.push(oldPage + 1);
+      }
+
+      pages.push(currentPage);
+
+      oldPage = currentPage;
     }
+  }
+
+  return pages;
+}
+
+// criar paginação
+function createPagination(pagination) {
+  const filter = pagination.dataset.filter;
+  const total = +pagination.dataset.total;
+  const page = +pagination.dataset.page;
+
+  const pages = paginate(page, total);
+
+  let elements = "";
+
+  for (let page of pages) {
+    if (String(page).includes("...")) {
+      elements += `<span>${page}</span>`;
+    } else {
+      if (filter) {
+        elements += `<a href="?page=${page}&filter=${filter}">${page}</a>`;
+      } else {
+        elements += `<a href="?page=${page}">${page}</a>`;
+      }
+    }
+  }
+
+  pagination.innerHTML = elements;
+}
+
+// Se existir paginação
+const pagination = document.querySelector(".pagination");
+
+if (pagination) {
+  createPagination(pagination);
 }
