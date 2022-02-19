@@ -19,8 +19,8 @@
 
     </section>
 
-    <section class="card-form">
-        <form id="form-submit" action="/admin/recipes?_method=PUT" method="post">
+    <form id="form-submit" action="/admin/recipes?_method=PUT" method="post">
+        <section class="card-form">
             {% include 'admin/recipes/fields.njk' %}
 
             <input
@@ -28,8 +28,8 @@
             name="id"
             value="{{recipe.id}}"
         >
-        </form>
-    </section>
+        </section>
+    </form>
 
     <script>
         const formDelete = document.querySelector("#form-delete")

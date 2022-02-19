@@ -20,36 +20,38 @@
             <h1>{{ chef.name }}</h1>
 
             {% if chef.total_recipes == 0 %}
-              <p>Nenhuma receita</p>
+                <p>Nenhuma receita</p>
             {% elif chef.total_recipes == 1 %}
-              <p>1 receita</p>
-            {% else %}  
-              <p>{{chef.total_recipes}} receitas</p>
+                <p>1 receita</p>
+            {% else %}
+                <p>{{chef.total_recipes}} receitas</p>
             {% endif %}
         </section>
 
-        <section class="recipes">
-            <h1>Receitas</h1>
-            <div class="card table-container chef-display">
-                <table width="100%">
-                    <tbody>
-                        {% for recipe in recipes %}
-                            <tr>
-                                <td>
-                                    <img src="{{recipe.image}}" alt="{{recipe.title}}">
-                                </td>
+        {% if chef.total_recipes > 0 %}
+            <section class="recipes">
+                <h1>Receitas</h1>
+                <div class="card table-container chef-display">
+                    <table width="100%">
+                        <tbody>
+                            {% for recipe in recipes %}
+                                <tr>
+                                    <td>
+                                        <img src="{{recipe.image}}" alt="{{recipe.title}}">
+                                    </td>
 
-                                <td>
-                                    <p id="title">{{recipe.title}}</p>
-                                    <p id="author">por {{chef.name}}</p>
-                                    <a href="/admin/recipes/{{recipe.id}}">Visulizar</a>
-                                </td>
-                            </tr>
-                        {% endfor %}
-                    </tbody>
-                </table>
-            </div>
-        </section>
+                                    <td>
+                                        <p id="title">{{recipe.title}}</p>
+                                        <p id="author">por {{chef.name}}</p>
+                                        <a href="/admin/recipes/{{recipe.id}}">Visulizar</a>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        {% endif %}
     </section>
 
 {% endblock content %}

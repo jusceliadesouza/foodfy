@@ -49,7 +49,7 @@ module.exports = {
   findRecipes(id, callback) {
     db.query(
       `
-      SELECT recipes.* AS recipesChef
+      SELECT recipes.*
       FROM recipes
       LEFT JOIN chefs ON (chefs.id = recipes.chef_id)
       WHERE chefs.id = $1

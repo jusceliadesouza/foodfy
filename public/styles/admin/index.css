@@ -172,6 +172,7 @@ tbody tr td:last-child {
   height: 80px;
 
   border-radius: 8.57px;
+  object-fit: cover;
 }
 
 #title {

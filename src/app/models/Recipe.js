@@ -30,13 +30,13 @@ module.exports = {
     `;
 
     const values = [
-      data.chef_id,
+      data.chef,
       data.image,
       data.title,
       data.ingredients,
       data.preparation,
       data.information,
-      date(Date.now()).iso,
+      date(Date.now()).isoCompleted,
     ];
 
     db.query(query, values, function (err, results) {
@@ -55,12 +55,6 @@ module.exports = {
         callback(results.rows[0]);
       }
     );
-  },
-  chefsSelectOptions(callback) {
-    db.query(`SELECT id, name FROM chefs`, function (err, results) {
-      if (err) throw "Database Error!";
-      callback(results.rows);
-    });
   },
   update(data, callback) {
     const query = `
@@ -98,5 +92,11 @@ module.exports = {
         return callback();
       }
     );
+  },
+  chefsSelectOptions(callback) {
+    db.query(`SELECT id, name FROM chefs`, function (err, results) {
+      if (err) throw "Database Error!";
+      callback(results.rows);
+    });
   },
 };
