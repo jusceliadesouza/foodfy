@@ -1,0 +1,34 @@
+<header>
+  <div class="container">
+    <div class="logo">
+      <a href="/">
+        <img src="/assets/logo.png" alt="logo Foodfy">
+      </a>
+    </div>
+
+    <div class="links">
+      <a href="/about">Sobre</a>
+      <a href="/recipes">Receitas</a>
+      <a href="/chefs">Chefs</a>
+    </div>
+
+    {% if pagination %}
+      {% include "parts/search.njk" %}
+    {% endif %}
+
+    <nav class="primary">
+      <li>
+        <a href="/admin/recipes/create">
+          <i class="material-icons">add</i>
+          Nova receita
+        </a>
+      </li>
+      <li>
+        <a href="/admin">
+          <i class="material-icons">account_circle</i>
+          Minha conta
+        </a>
+      </li>
+    </nav>
+  </div>
+</header>

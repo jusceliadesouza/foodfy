@@ -15,6 +15,9 @@ routes.get("/chefs", main.chefs);
 // routes.get("/search", main.search);
 
 // admin
+routes.get("/admin", function (req, res) {
+  res.redirect("/admin/recipes")
+})
 
 //--recipes
 routes.get("/admin/recipes", recipes.index);

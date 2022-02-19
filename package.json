@@ -21,6 +21,8 @@
   "homepage": "https://github.com/jusceliadesouza/foodfy#readme",
   "dependencies": {
     "express": "^4.17.3",
+    "icons": "^1.0.0",
+    "material-icons": "^1.10.7",
     "method-override": "^3.0.0",
     "nunjucks": "^3.2.3",
     "pg": "^8.7.3"

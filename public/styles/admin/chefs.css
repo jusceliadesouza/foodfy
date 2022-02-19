@@ -8,6 +8,10 @@
   gap: 30px;
 }
 
+.table-container.chef-display tbody {
+  grid-template-columns: repeat(2, 1fr);
+}
+
 .chef .avatar {
   display: flex;
 }

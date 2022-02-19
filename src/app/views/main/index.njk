@@ -4,18 +4,7 @@
   <title>Foodfy</title>
 {% endblock %}
 
-{% block header %}
-  <form class="search" action="/" method="GET">
-    <input 
-      type="text" 
-      name="filter"
-      value="{{filter}}"
-      placeholder="Busque uma receita"
-    >
-
-    <button type="submit">Buscar</button>
-  </form>
-{% endblock %}
+{% include "parts/header.njk" %}
 
 {% block content %}
   <div class="banner content">
