@@ -4,9 +4,9 @@ const Recipe = require("../models/Recipe");
 
 module.exports = {
   index(req, res) {
-    Recipe.all(function (recipes) {
-      return res.render("admin/recipes/index", { recipes });
-    });
+      Recipe.all(function (recipes) {
+        return res.render("admin/recipes/index", { recipes });
+      })
   },
   create(req, res) {
     Recipe.chefsSelectOptions(function (options) {
@@ -57,5 +57,5 @@ module.exports = {
     Recipe.delete(req.body.id, function () {
       return res.redirect(`/admin/recipes`);
     });
-  },
+  }
 };

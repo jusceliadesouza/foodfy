@@ -5,9 +5,17 @@ const Chef = require("../models/Chef");
 
 module.exports = {
   index(req, res) {
-    Recipe.all(function (recipes) {
-      return res.render("main/index", { recipes });
-    });
+    const { filter } = req.query;
+
+    if (filter) {
+      Recipe.findBy(filter, function (recipes) {
+        return res.render("main/search", { filter, recipes });
+      });
+    } else {
+      Recipe.all(function (recipes) {
+        return res.render("main/index", { recipes });
+      });
+    }
   },
   about(req, res) {
     return res.render("main/about");
@@ -30,5 +38,5 @@ module.exports = {
     Chef.all(function (chefs) {
       return res.render("main/chefs", { chefs });
     });
-  },
+  }
 };

@@ -12,6 +12,7 @@ routes.get("/about", main.about);
 routes.get("/recipes", main.recipes);
 routes.get("/recipes/:id", main.show);
 routes.get("/chefs", main.chefs);
+// routes.get("/search", main.search);
 
 // admin
 

@@ -35,7 +35,7 @@ header {
   padding: 30px 0;
 
   display: grid;
-  grid-template-columns: 90px 1fr;
+  grid-template-columns: 120px 1fr 350px;
 }
 
 .logo {
@@ -79,6 +79,36 @@ header {
 
 .active {
   font-weight: 700;
+}
+
+.search {
+  display: flex;
+  gap: 8px;
+
+  align-items: center;
+}
+
+.search input {
+  width: 246px;
+  height: 37px;
+  padding-left: 15px;
+
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+form.search button {
+  width: 91px;
+  height: 37px;
+
+  background: #6558C3;
+  border-radius: 4px;
+  border: none;
+
+  font-weight: bold;
+  line-height: 19px;
+  color: white;
+  cursor: pointer;
 }
 
 /* CONTENT */
@@ -171,12 +201,14 @@ section {
   margin-bottom: 5px;
 
   font-size: 18px;
+  font-weight: 300;
   line-height: 21px;
   color: var(--dark-gray-color);
 }
 
 #chef {
   font-size: 14px;
+  font-weight: 300;
   line-height: 16px;
   color: var(--medium-gray-color);
 }
