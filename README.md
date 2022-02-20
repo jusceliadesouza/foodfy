@@ -1,9 +1,7 @@
 <h1 align=center>Foodfy</h1>
 
 ![GitHub language count](https://img.shields.io/github/languages/count/jusceliadesouza/foodfy?color=%237159c1&style=for-the-badge)
-
 ![GitHub top language](https://img.shields.io/github/languages/top/jusceliadesouza/foodfy?color=%237159c1&style=for-the-badge)
-
 ![GitHub last commit](https://img.shields.io/github/last-commit/jusceliadesouza/foodfy?color=%237159c1&style=for-the-badge)
 
 ## Índice
