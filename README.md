@@ -94,7 +94,7 @@ $ npm start
   <a href="mailto:jusceliadesousa@gmail.com">
     <img src="https://img.shields.io/badge/-Gmail-2D2C2A?style=for-the-badge&logo=Gmail&logoColor=red" alt="Gmail">
   </a>
-  <a href="">
+  <a href="https://discord.com/channels/@me/677177966693974056">
     <img src="https://img.shields.io/badge/-Discord-2D2C2A?style=for-the-badge&logo=Discord&logoColor=f2f2f2"
       alt="Discord">
   </a>
