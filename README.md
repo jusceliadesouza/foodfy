@@ -1,8 +1,11 @@
 <h1 align=center>Foodfy</h1>
 
-![GitHub language count](https://img.shields.io/github/languages/count/jusceliadesouza/foodfy?color=%237159c1&style=for-the-badge)
-![GitHub top language](https://img.shields.io/github/languages/top/jusceliadesouza/foodfy?color=%237159c1&style=for-the-badge)
-![GitHub last commit](https://img.shields.io/github/last-commit/jusceliadesouza/foodfy?color=%237159c1&style=for-the-badge)
+<p align="center" style="display: flex; justify-content: space-evenly;">
+  <img src="https://img.shields.io/github/languages/count/jusceliadesouza/foodfy?color=%237159c1&style=for-the-badge" alt="Linguagens">
+  <img src="https://img.shields.io/github/languages/top/jusceliadesouza/foodfy?color=%237159c1&style=for-the-badge" alt="Linguagem mais utilizada">
+  <img src="https://img.shields.io/github/last-commit/jusceliadesouza/foodfy?color=%237159c1&style=for-the-badge"
+    alt="">
+</p>
 
 ## Índice
   
@@ -48,7 +51,7 @@ O Foodfy consiste em um sistema de gerenciamento de receitas, com área administ
 $ cd "C:\Users\username\Documents"
 
 # Clone o repositório com o comando a seguir
-$ git clone https://github.com/jusceliadesouza/foodyfy.git
+$ git clone https://github.com/jusceliadesouza/foodfy.git
 ```
 
 ### Execução
@@ -83,5 +86,16 @@ $ npm start
 
 <p align=center>Feito com ❤ por <strong>Juscélia de Souza</strong></p>
 
-[![Linkedin Badge](https://img.shields.io/badge/-Linkedin-blue?style=for-the-badge&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/jusceliadesouza/)](https://www.linkedin.com/in/jusceliadesouza/)
-[![Gmail Badge](https://img.shields.io/badge/-Gmail-c14438?style=for-the-badge&logo=Gmail&logoColor=white&link=mailto:jusceliadesousa@gmail.com)](mailto:jusceliadesousa@gmail.com)
+<p align="center" style="display: flex; justify-content: space-evenly;">
+  <a href="https://www.linkedin.com/in/jusceliadesouza/" target="_blank" rel="noopener noreferrer">
+    <img src="https://img.shields.io/badge/-Linkedin-2D2C2A?style=for-the-badge&logo=Linkedin&logoColor=blue"
+      alt="LinkedIn">
+  </a>
+  <a href="mailto:jusceliadesousa@gmail.com">
+    <img src="https://img.shields.io/badge/-Gmail-2D2C2A?style=for-the-badge&logo=Gmail&logoColor=red" alt="Gmail">
+  </a>
+  <a href="">
+    <img src="https://img.shields.io/badge/-Discord-2D2C2A?style=for-the-badge&logo=Discord&logoColor=f2f2f2"
+      alt="Discord">
+  </a>
+</p>
